@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+
+<form action = "{% url 'users:login' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button name="submit">log In</button>
+
+  <input type = "hidden" name = "next" value = "{% url 'users:login' %}" />
+  </form>
+
+<p>
+    Hello, {{ user.username }}.
+</p>
+  
+
+{% endblock content %}
